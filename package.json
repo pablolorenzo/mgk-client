@@ -19,6 +19,7 @@
   "homepage": "https://github.com/pablolorenzo/mgk-client#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "express-basic-auth": "^1.2.1",
     "serve-static": "^1.15.0"
   }
 }
