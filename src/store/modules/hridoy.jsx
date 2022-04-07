@@ -359,15 +359,15 @@ const getBoardWithMemberDetails = board => {
   return { ...board, members };
 };
 
-Mock.onGet("https://mgk-be.herokuapp.com/api/scrum-board/all-member").reply(config => {
+Mock.onGet("http://localhost:8000/api/scrum-board/all-member").reply(config => {
   return [200, [...ScrumBoardDB.members]];
 });
 
-Mock.onGet("https://mgk-be.herokuapp.com/api/scrum-board/all-label").reply(config => {
+Mock.onGet("http://localhost:8000/api/scrum-board/all-label").reply(config => {
   return [200, [...ScrumBoardDB.labels]];
 });
 
-Mock.onGet("https://mgk-be.herokuapp.com/api/scrum-board/all-board").reply(config => {
+Mock.onGet("http://localhost:8000/api/scrum-board/all-board").reply(config => {
   const response = ScrumBoardDB.boardList.map(board =>
     _.pick(board, ["id", "title"])
   );
@@ -375,7 +375,7 @@ Mock.onGet("https://mgk-be.herokuapp.com/api/scrum-board/all-board").reply(confi
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/add-board").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/add-board").reply(config => {
   let title = config.data;
   ScrumBoardDB.boardList.push({
     id: shortId.generate(),
@@ -391,7 +391,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/add-board").reply(conf
   return [200, response];
 });
 
-Mock.onGet("https://mgk-be.herokuapp.com/api/scrum-board").reply(config => {
+Mock.onGet("http://localhost:8000/api/scrum-board").reply(config => {
   const id = config.data;
 
   const board = ScrumBoardDB.boardList.find(board => board.id === id);
@@ -401,7 +401,7 @@ Mock.onGet("https://mgk-be.herokuapp.com/api/scrum-board").reply(config => {
   return [200, response];
 });
 
-Mock.onGet("https://mgk-be.herokuapp.com/api/scrum-board").reply(config => {
+Mock.onGet("http://localhost:8000/api/scrum-board").reply(config => {
   const id = config.data;
 
   const board = ScrumBoardDB.boardList.find(board => board.id === id);
@@ -411,7 +411,7 @@ Mock.onGet("https://mgk-be.herokuapp.com/api/scrum-board").reply(config => {
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/add-member").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/add-member").reply(config => {
   let { boardId, memberId } = JSON.parse(config.data);
   const board = ScrumBoardDB.boardList.find(board => board.id === boardId);
 
@@ -421,7 +421,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/add-member").reply(con
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/delete-member").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/delete-member").reply(config => {
   let { boardId, memberId } = JSON.parse(config.data);
 
   const board = ScrumBoardDB.boardList.find(board => board.id === boardId);
@@ -432,7 +432,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/delete-member").reply(
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/add-column").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/add-column").reply(config => {
   let { boardId, listTitle } = JSON.parse(config.data);
 
   const board = ScrumBoardDB.boardList.find(board => board.id === boardId);
@@ -447,7 +447,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/add-column").reply(con
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/rename-column").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/rename-column").reply(config => {
   let { boardId, listTitle, listId } = JSON.parse(config.data);
 
   const board = ScrumBoardDB.boardList.find(board => board.id === boardId);
@@ -463,7 +463,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/rename-column").reply(
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/delete-column").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/delete-column").reply(config => {
   let { boardId, listId } = JSON.parse(config.data);
 
   const board = ScrumBoardDB.boardList.find(board => board.id === boardId);
@@ -480,7 +480,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/delete-column").reply(
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/add-card").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/add-card").reply(config => {
   let { boardId, cardTitle, listId } = JSON.parse(config.data);
 
   let board = ScrumBoardDB.boardList.find(board => board.id === boardId);
@@ -500,7 +500,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/add-card").reply(confi
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/update-card").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/update-card").reply(config => {
   let { boardId, listId, card } = JSON.parse(config.data);
 
   let boardList = ScrumBoardDB.boardList.map(board => {
@@ -535,7 +535,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/update-card").reply(co
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/reorder-list").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/reorder-list").reply(config => {
   let { boardId, startIndex, endIndex } = JSON.parse(config.data);
 
   ScrumBoardDB.boardList = ScrumBoardDB.boardList.map(board => {
@@ -554,7 +554,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/reorder-list").reply(c
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/reorder-card").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/reorder-card").reply(config => {
   let { boardId, listId, startIndex, endIndex } = JSON.parse(config.data);
 
   ScrumBoardDB.boardList = ScrumBoardDB.boardList.map(board => {
@@ -581,7 +581,7 @@ Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/reorder-card").reply(c
   return [200, response];
 });
 
-Mock.onPost("https://mgk-be.herokuapp.com/api/scrum-board/move-card").reply(config => {
+Mock.onPost("http://localhost:8000/api/scrum-board/move-card").reply(config => {
   let {
     boardId,
     sourcelistId,

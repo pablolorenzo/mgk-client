@@ -9,7 +9,7 @@ function getServices() {
     }
   };
 
-  return fetch(`https://mgk-be.herokuapp.com/api/services/`, requestOptions)
+  return fetch(`${process.env.VUE_APP_BACKEND}/api/services/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 

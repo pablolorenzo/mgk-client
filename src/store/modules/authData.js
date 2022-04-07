@@ -10,8 +10,8 @@ export default {
     loading: false,
     error: null,
     endpoints: {
-      obtainJWT: 'https://mgk-be.herokuapp.com/api/token',
-      refreshJWT: 'https://mgk-be.herokuapp.com/api/token/refresh'
+      obtainJWT: `${process.env.VUE_APP_BACKEND}/api/token`,
+      refreshJWT: `${process.env.VUE_APP_BACKEND}/api/token/refresh`
     },
     jwt: null
   },

@@ -9,7 +9,7 @@ function getProviders() {
     },
   };
 
-  return fetch(`https://mgk-be.herokuapp.com/api/service-type/`, requestOptions)
+  return fetch(`${process.env.VUE_APP_BACKEND}/api/service-type/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -23,7 +23,7 @@ function getStatuses() {
     },
   };
 
-  return fetch(`https://mgk-be.herokuapp.com/api/service-status/`, requestOptions)
+  return fetch(`${process.env.VUE_APP_BACKEND}/api/service-status/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -45,7 +45,7 @@ function addService(parameters) {
     })
   };
 
-  return fetch(`https://mgk-be.herokuapp.com/api/services/`, requestOptions)
+  return fetch(`${process.env.VUE_APP_BACKEND}/api/services/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 function addBalanceItem(parameters) {
@@ -63,7 +63,7 @@ function addBalanceItem(parameters) {
     })
   };
 
-  return fetch(`https://mgk-be.herokuapp.com/api/balance-item/`, requestOptions)
+  return fetch(`${process.env.VUE_APP_BACKEND}/api/balance-item/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -82,7 +82,7 @@ function addProvider(parameters) {
     })
   };
 
-  return fetch(`https://mgk-be.herokuapp.com/api/service-type/`, requestOptions)
+  return fetch(`${process.env.VUE_APP_BACKEND}/api/service-type/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -103,7 +103,7 @@ function addCost(parameters) {
     })
   };
 
-  return fetch(`https://mgk-be.herokuapp.com/api/balance-item-service/`, requestOptions)
+  return fetch(`${process.env.VUE_APP_BACKEND}/api/balance-item-service/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -117,7 +117,7 @@ function getBalanceType() {
     },
   };
 
-  return fetch(`https://mgk-be.herokuapp.com/api/balance-item/`, requestOptions)
+  return fetch(`${process.env.VUE_APP_BACKEND}/api/balance-item/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 

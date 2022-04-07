@@ -134,7 +134,7 @@ export default {
     return {
       fName: "",
       email: "",
-      bgImage: require("@/assets/images/photo-wide-4.jpg"),
+      bgImage: require("@/assets/images/wood.jpg"),
       logo: require("@/assets/images/logo.png"),
       signInImage: require("@/assets/images/photo-long-3.jpg"),
       password: "",

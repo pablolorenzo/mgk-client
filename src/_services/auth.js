@@ -6,7 +6,7 @@ function getToken(data) {
         username: data.email,
         password: data.password
       }
-      return axios.post('https://mgk-be.herokuapp.com/api/token/', payload)
+      return axios.post(`${process.env.VUE_APP_BACKEND}/api/token/`, payload)
   }
   
   function refreshToken() {
@@ -14,7 +14,7 @@ function getToken(data) {
       method: 'GET'
     };
   
-    return fetch(`https://mgk-be.herokuapp.com/api/service-status/`, requestOptions)
+    return fetch(`${process.env.VUE_APP_BACKEND}/api/service-status/`, requestOptions)
     .then(glovalService.handleResponse);
   }
 
